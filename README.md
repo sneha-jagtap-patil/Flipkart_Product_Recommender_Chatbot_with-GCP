@@ -1,4 +1,4 @@
-## Flipkart Product Recommender Chatbot with LLMOps
+## Flipkart Product Recommender Chatbot with GCP 
 
 An AI-powered product recommendation chatbot built using LLMs, deployed with Docker, Kubernetes and monitored using Prometheus & Grafana on Google Cloud.
 
