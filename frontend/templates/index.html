@@ -6,6 +6,7 @@
   <title>Flipkart Product Assistant</title>
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     /* ── Reset ─────────────────────────────────────── */
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -251,32 +252,35 @@
 
   <!-- SIDEBAR -->
   <aside class="sidebar">
-    <h3>Categories</h3>
+    <h3>Audio Products</h3>
     <ul>
-      <li onclick="sendChip('Best mobiles under 15000')">
-        <i class="fas fa-mobile-alt"></i>Mobiles
+      <li onclick="sendChip('Best BoAt Rockerz 235v2 review')">
+        <i class="fas fa-headphones"></i>BoAt Rockerz
         <span class="sidebar-badge">HOT</span>
       </li>
-      <li onclick="sendChip('Top laptops on Flipkart')">
-        <i class="fas fa-laptop"></i>Laptops
+      <li onclick="sendChip('Realme Buds Wireless review')">
+        <i class="fas fa-headphones-alt"></i>Realme Buds Wireless
       </li>
-      <li onclick="sendChip('Best TV deals on Flipkart')">
-        <i class="fas fa-tv"></i>Electronics
+      <li onclick="sendChip('OnePlus Bullets Wireless Z review')">
+        <i class="fas fa-headphones"></i>OnePlus Bullets Z
       </li>
-      <li onclick="sendChip('Top fashion brands')">
-        <i class="fas fa-tshirt"></i>Fashion
+      <li onclick="sendChip('BoAt Airdopes 131 review')">
+        <i class="fas fa-assistive-listening-systems"></i>BoAt Airdopes 131
       </li>
-      <li onclick="sendChip('Best home appliances')">
-        <i class="fas fa-blender"></i>Appliances
+      <li onclick="sendChip('Realme Buds 2 wired headset review')">
+        <i class="fas fa-music"></i>Realme Buds 2
       </li>
-      <li onclick="sendChip('Top rated books')">
-        <i class="fas fa-book"></i>Books
+      <li onclick="sendChip('OnePlus Bullets Z Bass Edition review')">
+        <i class="fas fa-volume-up"></i>OnePlus Bass Edition
       </li>
-      <li onclick="sendChip('Best sports equipment')">
-        <i class="fas fa-running"></i>Sports
+      <li onclick="sendChip('U and I Titanic Neckband review')">
+        <i class="fas fa-headset"></i>U&amp;I Titanic
       </li>
-      <li onclick="sendChip('Top beauty products')">
-        <i class="fas fa-spa"></i>Beauty
+      <li onclick="sendChip('BoAt BassHeads 100 review')">
+        <i class="fas fa-plug"></i>BoAt BassHeads 100
+      </li>
+      <li onclick="sendChip('Realme Buds Q earbuds review')">
+        <i class="fas fa-podcast"></i>Realme Buds Q
       </li>
     </ul>
   </aside>
@@ -286,23 +290,23 @@
     <div class="chat-header">
       <div class="chat-header-icon"><i class="fas fa-robot"></i></div>
       <div class="chat-header-info">
-        <h2>Flipkart AI Assistant</h2>
-        <p><span class="status-dot"></span>Online · Product Recommender</p>
+        <h2>Flipkart Product Recommender</h2>
+        <p><span class="status-dot"></span>Online · AI-Powered Chatbot</p>
       </div>
     </div>
 
     <div class="messages" id="messages">
       <!-- Welcome card -->
       <div class="welcome-card" id="welcomeCard">
-        <h2>🛒 Welcome to Flipkart Assistant!</h2>
-        <p>Ask me anything about products — prices, reviews, comparisons &amp; more.</p>
+        <h2>🛒 Welcome to Flipkart Product Recommender!</h2>
+        <p>Ask me about products — reviews, comparisons &amp; recommendations powered by AI!</p>
         <div class="suggestion-chips">
-          <div class="chip" onclick="sendChip('Best mobile under ₹15,000')">📱 Mobiles under ₹15K</div>
-          <div class="chip" onclick="sendChip('Top rated laptops')">💻 Top Laptops</div>
-          <div class="chip" onclick="sendChip('Compare Samsung vs OnePlus')">⚖️ Compare Phones</div>
-          <div class="chip" onclick="sendChip('Best earbuds under 2000')">🎧 Earbuds under ₹2K</div>
-          <div class="chip" onclick="sendChip('Best TV under 30000')">📺 TVs under ₹30K</div>
-          <div class="chip" onclick="sendChip('Top rated smartwatch')">⌚ Smartwatches</div>
+          <div class="chip" onclick="sendChip('Best Bluetooth neckband under 1500')">🎵 Best Neckbands</div>
+          <div class="chip" onclick="sendChip('Compare BoAt vs OnePlus earphones')">⚖️ BoAt vs OnePlus</div>
+          <div class="chip" onclick="sendChip('Best earbuds with good bass')">🔊 Best Bass Earbuds</div>
+          <div class="chip" onclick="sendChip('Which earphone has best battery backup')">🔋 Best Battery Life</div>
+          <div class="chip" onclick="sendChip('Best wireless earphones for calling')">📞 Best for Calls</div>
+          <div class="chip" onclick="sendChip('Realme Buds vs BoAt Rockerz comparison')">🆚 Realme vs BoAt</div>
         </div>
       </div>
 
@@ -382,7 +386,7 @@
       });
       const reply = await res.text();
       typing.style.display = 'none';
-      appendMessage('bot', reply);
+      appendMessage('bot', marked.parse(reply));
     } catch (e) {
       typing.style.display = 'none';
       appendMessage('bot', '⚠️ Sorry, something went wrong. Please try again.');
