@@ -11,7 +11,7 @@ def build_flipkart_retriever_tool(retriever):
     @tool
     def flipkart_retriever_tool(query: str) -> str:
         """
-        Retrieve top product reviews related to the user query.
+        Retrieve top product reviews related to the user query using ythe provider ! ..
         """
         docs = retriever.invoke(query)
         return "\n\n".join(doc.page_content for doc in docs)
